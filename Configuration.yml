@@ -1,0 +1,45 @@
+product1: &oesx
+  name: "OESX"
+  # minExercisePriceCall: 44000000
+  # maxExercisePriceCall: 55000000
+  # minExercisePricePut: 44000000
+  # maxExercisePricePut: 55000000
+  minExercisePrice: 41900000
+  maxExercisePrice: 57100000
+  #minExercisePrice: 0
+  #maxExercisePrice: 591000000000
+  minRateTime: 0
+  maxRateTime: 2
+
+model: &keras
+  inputLayer: 6
+  hiddenLayer1: 128
+  hiddenLayer2: 128
+  hiddenLayer3: 128
+  hiddenLayer4: 64
+  outputLayer: 1
+
+features: &feat
+  optiontype: 'CallPutAsBinary'
+  underlying: 'refUnderlying'
+  exerciseprice: 'exercisePriceValue'
+  forwardprice: 'forwardPrice'
+  interestrate: 'InterestRate'
+  volatility: 'vola'
+  expirationtime: 'rateTime'
+  theoprice: 'theoPrice'
+  optionpriceBS: 'OptionPriceBS'
+  Moneyness: 'Moneyness'
+  volatime: 'volatime'
+  # offset: 'Offset'
+
+
+logLevel: "INFO"
+
+min_tick_value: 0.1
+
+maxrows: 200000
+
+product: *oesx
+kerasModel: *keras
+features: *feat
